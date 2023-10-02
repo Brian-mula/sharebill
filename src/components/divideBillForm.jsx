@@ -13,10 +13,10 @@ export default function DivideBillForm({selectedFriend, onSelectedFriend, onChan
     if(pay === 'you'){
       // selectedFriend.balance = selectedFriend.balance + bal
       // onChangeBalance({balance:selectedFriend.balance + bal, ...selectedFriend})
-      onChangeBalance((friends)=>friends.map((friend)=>friend.id === selectedFriend.id ? {balance:friend.balance + bal, ...friend} : friend))
+      onChangeBalance((friends)=>friends.map((friend)=>friend.id === selectedFriend.id ? {...friend,balance:friend.balance + bal} : friend))
     }else{
       // selectedFriend.balance = selectedFriend.balance - bal
-      onChangeBalance((friends)=>friends.map((friend)=>friend.id === selectedFriend.id ? {balance:friend.balance - bal, ...friend} : friend))
+      onChangeBalance((friends)=>friends.map((friend)=>friend.id === selectedFriend.id ? {...friend,balance:friend.balance - bal} : friend))
     }
     onSelectedFriend(null)
   }
